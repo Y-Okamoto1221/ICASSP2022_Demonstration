@@ -1,0 +1,851 @@
+<HTML>
+  <HEAD>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <TITLE>Environmental sound extraction using onomatopoeia</TITLE>  
+  <meta http-equiv="content-type"  charset="utf-8" name="robots" value="noindex" />
+  </HEAD>
+  <BODY>
+
+<dir id="test"></dir>
+    <left>
+     <br>
+     <font size="6"><b>Environmental sound extraction using onomatopoeia</b></font>
+
+    <br> 
+　　<br>
+    <br>
+
+    Author: <b>Yuki Okamoto, Shota Horiguchi, Masaaki Yamamoto, Keisuke Imoto, Yohei Kawaguchi</b><br>
+    <br>
+    <br>
+    <p>
+    This is a demonstration of environmental sound extraction using onomatopoeia.
+    We conducted environmental sound extraction using one proposed method and two comparison methods as follows:
+    </p>
+    <ul>
+  　<li><b>Superclass-conditioned method (Baseline)</b></li>
+        This method is conditioned by superclass sound event class.
+        <br> 
+
+  　<li><b>Subrclass-conditioned method (Baseline)</b></li>
+        This method is conditioned by subclass sound event class.
+        <br><br>
+
+    <li><b>Onomatopoeia-conditioned method <font color="#0000ff">(Proposed)</font></b></li>
+        This method is conditioned by onomatopoeia. 
+　　</ul>
+
+    <p>
+    As sounds of the dataset, We selected 16 types of sound events in superclass and 44 types of sound events in subclass from RWCP-SSD (Real World Computing Partnership-sound Scene Database) [1].
+    For the onomatopoeia corresponding to each sound sample, we used the dataset in RWCP-SSD-Onomatopoeia [2].
+    <br>
+    We constructed the following three evaluation datasets using the selected sound events:
+    <ul>
+  　<li><b>Inter-superclass dataset (<a href="#data01">samples of extraction sounds</a>)</b></li>
+        Eachmixturesoundinthisdataset is composed of a target sound and interference sounds, the superclass of each is different from that of the target sound.
+        <br> 
+
+  　<li><b>Intra-superclass dataset (<a href="#data02">samples of extraction sounds</a>)</b></li>
+        Eachmixturesoundinthisdataset is composed of a target sound and interference sounds, the superclass of each is the same as that of the target sound, but the subclass is different.
+        <br><br>
+
+    <li><b>Intra-subclass dataset (<a href="#data03">samples of extraction sounds</a>)</b></li>
+        Each mixture sound in this dataset is composed of a target sound and interference sounds, the subclass of each is the same as that of the target sound, but the onomatopoeia is different. 
+　　</ul>
+    </p>
+    <br>
+    <br>
+    <br><br><br>
+    <p>
+
+    <a name="data01"><font size="6">(I) Examples of environmental sound extraction using inter-superclass dataset</font></a><br>
+    <br>
+    <table border="1", align="left", style="margin-bottom:70px">
+    <tr>
+    <th>Mixture sound</th>
+    <th>Ground truth</th>
+    <th>Superclass-conditioned method <br>(Baseline)</th>
+    <th>Subclass-conditioned method <br>(Baseline)</th>
+    <th>Onomatopoeia-conditioned method <br><font color="#0000ff">(Proposed)</font></th>
+    </tr>
+    <tr>
+    <td colspan="1">
+        <img src="./image/data03/938_mix.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data03/938_true.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data03/938_extracted_conv01.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data03/938_extracted_conv01.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data03/938_extracted_propose.png">
+    </td>
+    </tr>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left>&nbsp;Superclass: <b>metal</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Subclass: <b>metal05</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Onomatopoeia: <b>/ b i: /</b></left></td>
+    <tr>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/938_bi__mixes.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/938_bi__true.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/938_bi__extracted_conv01.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+     </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/938_bi__extracted_conv02.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+     </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/938_bi__extracted_propose.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    </tr>
+    </table>
+
+    <br>
+
+    <table border="1", align="left", style="margin-bottom:70px">
+    <tr>
+    <th>Mixture sound</th>
+    <th>Ground truth</th>
+    <th>Superclass-conditioned method <br>(Baseline)</th>
+    <th>Subclass-conditioned method <br>(Baseline)</th>
+    <th>Onomatopoeia-conditioned method <br><font color="#0000ff">(Proposed)</font></th>
+    </tr>
+    <tr>
+    <td colspan="1">
+        <img src="./image/data03/990_mix.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data03/990_true.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data03/990_extracted_conv01.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data03/990_extracted_conv02.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data03/990_extracted_propose.png">
+    </td>
+    </tr>
+
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left>&nbsp;Superclass: <b>bell</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Subclass: <b>bell1</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Onomatopoeia: <b>/ p u r u r u r u /</b></left></td>
+
+    <tr>
+
+    </tr>
+    <tr>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/990_purururu_mixes.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/990_purururu_true.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/990_purururu_extracted_conv01.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/990_purururu_extracted_conv02.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/990_purururu_extracted_propose.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    </tr>
+    </table>
+    <br>
+    <table border="1", align="left", style="margin-bottom:70px">
+    <tr>
+    <th>Mixture sound</th>
+    <th>Ground truth</th>
+    <th>Superclass-conditioned method <br>(Baseline)</th>
+    <th>Subclass-conditioned method <br>(Baseline)</th>
+    <th>Onomatopoeia-conditioned method <br><font color="#0000ff">(Proposed)</font></th>
+    </tr>
+    <tr>
+    <td colspan="1">
+        <img src="./image/data03/1046_mix.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data03/1046_true.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data03/1046_extracted_conv01.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data03/1046_extracted_conv02.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data03/1046_extracted_propose.png">
+    </td>
+    </tr>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left>&nbsp;Superclass: <b>metal</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Subclass: <b>metal05</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Onomatopoeia: <b>/ p i p i p i p i p i p i /</b></left></td>
+    <tr>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/1046_pipipipipipi_mixes.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/1046_pipipipipipi_true.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/1046_pipipipipipi_extracted_conv01.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+     </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/1046_pipipipipipi_extracted_conv02.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+     </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data03/1046_pipipipipipi_extracted_proposed.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    </tr>
+    </table>
+    </p>
+    <br><br><br><br>
+
+
+
+
+
+
+    <p>
+    <a name="data02"><font size="6">(II) Examples of environmental sound extraction using intra-superclass dataset</font></a><br>
+    <br>
+    <table border="1", align="left", style="margin-bottom:70px">
+    <tr>
+    <th>Mixture sound</th>
+    <th>Ground truth</th>
+    <th>Superclass-conditioned method <br>(Baseline)</th>
+    <th>Subclass-conditioned method <br>(Baseline)</th>
+    <th>Onomatopoeia-conditioned method <br><font color="#0000ff">(Proposed)</font></th>
+    </tr>
+    <tr>
+    <td colspan="1">
+        <img src="./image/data01/177_mix.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data01/177_true.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data01/177_extracted_conv01.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data01/177_extracted_conv02.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data01/177_extracted_propose.png">
+    </td>
+    </tr>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left>&nbsp;Superclass: <b>metal</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Subclass: <b>metal05</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Onomatopoeia: <b>/ p a N t a r a r a /</b></left></td>
+    <tr>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/177_paNtarara_mixes.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/177_paNtarara_true.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/177_paNtarara_extracted_conv01.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+     </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/177_paNtarara_extracted_conv02.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+     </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/177_paNtarara_extracted_propose.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    </tr>
+    </table>
+
+    <br>
+
+    <table border="1", align="left", style="margin-bottom:70px">
+    <tr>
+    <th>Mixture sound</th>
+    <th>Ground truth</th>
+    <th>Superclass-conditioned method <br>(Baseline)</th>
+    <th>Subclass-conditioned method <br>(Baseline)</th>
+    <th>Onomatopoeia-conditioned method <br><font color="#0000ff">(Proposed)</font></th>
+    </tr>
+    <tr>
+    <td colspan="1">
+        <img src="./image/data01/251_mix.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data01/251_true.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data01/251_extracted_conv01.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data01/251_extracted_conv02.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data01/251_extracted_propose.png">
+    </td>
+    </tr>
+
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left>&nbsp;Superclass: <b>bell</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Subclass: <b>bell1</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Onomatopoeia: <b>/ a t i N /</b></left></td>
+
+    <tr>
+
+    </tr>
+    <tr>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/251_atiN_mixes.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/251_atiN_true.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/251_atiN_extracted_conv01.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/251_atiN_extracted_conv02.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/251_atiN_extracted_propose.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    </tr>
+    </table>
+    <br>
+    <table border="1", align="left", style="margin-bottom:70px">
+    <tr>
+    <th>Mixture sound</th>
+    <th>Ground truth</th>
+    <th>Superclass-conditioned method <br>(Baseline)</th>
+    <th>Subclass-conditioned method <br>(Baseline)</th>
+    <th>Onomatopoeia-conditioned method <br><font color="#0000ff">(Proposed)</font></th>
+    </tr>
+    <tr>
+    <td colspan="1">
+        <img src="./image/data01/613_mix.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data01/613_true.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data01/613_extracted_conv01.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data01/613_extracted_conv02.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data01/613_extracted_propose.png">
+    </td>
+    </tr>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left>&nbsp;Superclass: <b>metal</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Subclass: <b>metal05</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Onomatopoeia: <b>/ ch i r i r i r i r i r i r i /</b></left></td>
+    <tr>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/613_chiriririririri_mixes.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/613_chiriririririri_true.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/613_chiriririririri_extracted_conv01.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+     </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/613_chiriririririri_extracted_conv02.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+     </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data01/613_chiriririririri_extracted_propose.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    </tr>
+    </table>
+    </p>
+
+
+
+
+    <br><br><br><br>
+    <a name="data03"><font size="6">(III) Examples of environmental sound extraction using intra-subclass dataset</font></a><br>
+    <br>
+    <table border="1", align="left", style="margin-bottom:70px">
+    <tr>
+    <th>Mixture sound</th>
+    <th>Ground truth</th>
+    <th>Superclass-conditioned method <br>(Baseline)</th>
+    <th>Subclass-conditioned method <br>(Baseline)</th>
+    <th>Onomatopoeia-conditioned method <br><font color="#0000ff">(Proposed)</font></th>
+    </tr>
+    <tr>
+    <td colspan="1">
+        <img src="./image/data02/metal_mixture.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/metal_truth.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/metal_conv01.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/metal_conv02.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/metal_propose.png">
+    </td>
+    </tr>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left>&nbsp;Superclass: <b>metal</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Subclass: <b>metal05</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Onomatopoeia: <b>/ p o q /</b></left></td>
+    <tr>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/004_poq_mixes.wav" type="audio/wav">
+    Your browser does not support the audio element.
+    </audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/004_poq_true.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/004_poq_conv01_extracted.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+     </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/004_poq_conv02_extracted_0dB.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+     </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/004_poq_propose_extracted_0dB.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    </tr>
+    </table>
+
+    <br>
+
+    <table border="1", align="left", style="margin-bottom:70px">
+    <tr>
+    <th>Mixture sound</th>
+    <th>Ground truth</th>
+    <th>Superclass-conditioned method <br>(Baseline)</th>
+    <th>Subclass-conditioned method <br>(Baseline)</th>
+    <th>Onomatopoeia-conditioned method <br><font color="#0000ff">(Proposed)</font></th>
+    </tr>
+    <tr>
+    <td colspan="1">
+        <img src="./image/data02/bell_mixture.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/bell_truth.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/bell_conv01.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/bell_conv02.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/bell_propose.png">
+    </td>
+    </tr>
+
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left>&nbsp;Superclass: <b>bell</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Subclass: <b>bell1</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Onomatopoeia: <b>/ p i r i r i r i r i N /</b></left></td>
+
+    <tr>
+
+    </tr>
+    <tr>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/584_piririririN_mixes.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/584_piririririN_true.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/584_piririririN_conv01_extracted.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/584_piririririN_conv02_extracted_0dB.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/584_piririririN_propose_extracted_0dB.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    </tr>
+    </table>
+
+    <br>
+    <table border="1", align="left", style="margin-bottom:70px">
+    <tr>
+    <th>Mixture sound</th>
+    <th>Ground truth</th>
+    <th>Superclass-conditioned method <br>(Baseline)</th>
+    <th>Subclass-conditioned method <br>(Baseline)</th>
+    <th>Onomatopoeia-conditioned method <br><font color="#0000ff">(Proposed)</font></th>
+    </tr>
+    <tr>
+    <td colspan="1">
+        <img src="./image/data02/phone_mixture.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/phone_truth.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/phone_conv01.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/phone_conv02.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/phone_propose.png">
+    </td>
+    </tr>
+
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left>&nbsp;Superclass: <b>phone</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Subclass: <b>phone4</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Onomatopoeia: <b>/ p u r u r u r u r u r u /</b></left></td>
+
+
+    <tr>
+    </tr>
+    <tr class="td-css-top">
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/1071_pururururururu_mixes.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/1071_pururururururu_true.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/1071_pururururururu_conv01_extracted.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/1071_pururururururu_conv02_extracted_0dB.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/1071_pururururururu_propose_extracted_0dB.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    </tr>
+    </table>
+
+    <br>
+    <table border="1", align="left", style="margin-bottom:70px">
+    <tr>
+    <th>Mixture sound</th>
+    <th>Ground truth</th>
+    <th>Superclass-conditioned method <br>(Baseline)</th>
+    <th>Subclass-conditioned method <br>(Baseline)</th>
+    <th>Onomatopoeia-conditioned method <br><font color="#0000ff">(Proposed)</font></th>
+    </tr>
+    <tr>
+    <td colspan="1">
+        <img src="./image/data02/claps_miture.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/claps_truth.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/claps_conv01.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/claps_conv02.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/claps_propose.png">
+    </td>
+    </tr>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left>&nbsp;Superclass: <b>claps</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Subclass: <b>claps2</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Onomatopoeia: <b>/ t i ch i ch i ch i ch ich i /</b></left></td>
+
+
+
+
+
+    <tr>
+    </tr>
+    <tr>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/534_tichichichichichi_mixes.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/534_tichichichichichi_true.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/534_tichichichichichi_conv01_extracted.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/534_tichichichichichi_conv02_extracted.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/534_tichichichichichi_propose_extracted.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    </div>
+    </tr>
+    </table>
+
+    <br>
+    <table border="1", align="left", style="margin-bottom:40px">
+    <tr>
+    <th>Mixture sound</th>
+    <th>Ground truth</th>
+    <th>Superclass-conditioned method <br>(Baseline)</th>
+    <th>Subclass-conditioned method <br>(Baseline)</th>
+    <th>Onomatopoeia-conditioned method <br><font color="#0000ff">(Proposed)</font></th>
+    </tr>
+
+    <tr>
+    <td colspan="1">
+        <img src="./image/data02/dice_miture.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/dice_truth.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/dice_conv01.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/dice_conv02.png">
+    </td>
+    <td colspan="1">
+        <img src="./image/data02/dice_propose.png">
+    </td>
+    </tr>
+
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left></left></td>
+    <td class="td-css-top"><left>&nbsp;Superclass: <b>dice</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Subclass: <b>dice3</b></left></td>
+    <td class="td-css-top"><left>&nbsp;Onomatopoeia: <b>/ t o q t u t u t u /</b></left></td>
+
+
+
+    <tr>
+    </tr>
+    <tr>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/171_toqtututu_mixes.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/171_toqtututu_true.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/171_toqtututu_conv01_extracted.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/171_toqtututu_conv02_extracted.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    <td class="td-css-top">
+    <audio controls="">
+    <source src="./sound/data02/171_toqtututu_propose_extracted.wav" type="audio/wav">
+    Your browser does not support the audio element.
+　　</audio>
+    </td>
+    </tr>
+    </table>
+    <br>
+
+    <p>
+    <br>
+    <br>
+    [1] S. Nakamura, K. Hiyane, F. Asano, and T. Endo, “Sound scene data collection in real acoustic environments,” The Journal of the Acoustic Society of Japan (E), vol. 20, No. 3, pp. 225–231, 1999.<br>
+    [2] Yuki Okamoto, Keisuke Imoto, Shinnosuke Takamichi, Ryosuke Yamanishi, Takahiro Fukumori, and Yoichi Yamashita, "RWCP-SSD-Onomatopoeia: Onomatopoeic Word Dataset for Environmental Sound Synthesis," Proc. Detection and Classification of Acoustic Scenes and Events (DCASE), pp. 125-129, 2020.
+    </p>
+    </left>
+ 
+
+
+</BODY>
+</HTML>
+
