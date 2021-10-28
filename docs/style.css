@@ -43,3 +43,8 @@ ul, ol{
   padding-bottom:0px;
   margin-top: 0px;
 }
+
+img.img01 {
+width: 350px;
+height: auto;
+}
